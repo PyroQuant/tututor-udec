@@ -46,6 +46,7 @@ const createNewChat = async () => {
   };
   
   chatHistory.value.unshift(newChat);
+  showSuggestions.value = true;
 };
 
 const handleSuggestionSelect = (question: string) => {
@@ -185,26 +186,29 @@ onMounted(async () => {
       </div>
     </header>
 
-    <!-- Chat Messages -->
-    <div class="flex-1 overflow-y-auto p-6 max-w-4xl mx-auto w-full">
-      <ChatMessage
-        v-for="message in messages"
-        :key="message.id"
-        :content="message.content"
-        :is-user="message.isUser"
-        :timestamp="message.timestamp"
-        :is-loading="message.isLoading"
-      />
-    </div>
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <!-- Messages Container -->
+      <div class="flex-1 overflow-y-auto p-6 max-w-4xl mx-auto w-full">
+        <ChatMessage
+          v-for="message in messages"
+          :key="message.id"
+          :content="message.content"
+          :is-user="message.isUser"
+          :timestamp="message.timestamp"
+          :is-loading="message.isLoading"
+        />
+      </div>
 
-    <!-- Suggestions and Input -->
-    <div class="max-w-4xl mx-auto w-full px-6 pb-6">
-      <SuggestionCards
-        v-if="showSuggestions && messages.length === 1"
-        @select="handleSuggestionSelect"
-        class="mb-4"
-      />
-      <ChatInput @send="sendMessage" />
+      <!-- Fixed Bottom Section -->
+      <div class="flex-shrink-0 max-w-4xl mx-auto w-full px-6 pb-6">
+        <SuggestionCards
+          v-if="showSuggestions && messages.length === 1"
+          @select="handleSuggestionSelect"
+          class="mb-4"
+        />
+        <ChatInput @send="sendMessage" />
+      </div>
     </div>
   </div>
 </template>
