@@ -10,6 +10,9 @@ ARG VITE_API_KEY
 RUN echo "VITE_API_URL=$VITE_API_URL" >> .env
 RUN echo "VITE_API_KEY=$VITE_API_KEY" >> .env
 
+# <-- Este paso de debug, solo para confirmar:
+RUN echo "********** CONTENIDO DEL .env **********" && cat .env
+
 # ...Luego el resto:
 COPY package*.json ./
 RUN npm install
