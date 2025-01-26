@@ -63,7 +63,7 @@ const handleSubmit = async (event: Event) => {
   >
     <div class="w-full max-w-md login-container animate__animated animate__fadeIn">
       <div class="text-center mb-6 md:mb-8">
-        <div class="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-0 mb-4">
+        <div class="flex justify-center items-center gap-2 mb-4">
           <img 
             src="https://i.ibb.co/4VWMRXr/488dfff6-ad3d-4cc9-a460-9c90c27bfb4c.png" 
             alt="TuTutor Logo" 

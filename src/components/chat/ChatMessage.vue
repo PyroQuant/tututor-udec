@@ -24,7 +24,10 @@ const userAvatar = computed(() => {
 const sanitizedHtml = computed(() => {
   if (props.isLoading) return '';
   const rawHtml = marked(props.content) as string;
-  return DOMPurify.sanitize(rawHtml);
+  return DOMPurify.sanitize(rawHtml, {
+    ADD_ATTR: ['target', 'rel'],
+    ALLOWED_ATTR: ['href', 'target', 'rel']
+  });
 });
 </script>
 
@@ -53,7 +56,7 @@ const sanitizedHtml = computed(() => {
       </template>
       <template v-else>
         <div 
-          class="break-words prose prose-sm max-w-none"
+          class="break-words prose prose-sm max-w-none select-text"
           v-html="sanitizedHtml"
         ></div>
         <span class="text-xs text-gray-500 mt-1 block">
@@ -62,7 +65,7 @@ const sanitizedHtml = computed(() => {
       </template>
       <div 
         v-if="!isLoading"
-        class="absolute inset-0 bg-gradient-to-r animate__animated animate__fadeIn animate__faster"
+        class="absolute inset-0 bg-gradient-to-r animate__animated animate__fadeIn animate__faster pointer-events-none"
         :class="{
           'from-orange-200/20 to-transparent': isUser,
           'from-blue-200/20 to-transparent': !isUser
@@ -82,7 +85,8 @@ const sanitizedHtml = computed(() => {
 }
 
 :deep(.prose a) {
-  @apply text-blue-600 no-underline hover:underline;
+  @apply text-blue-600 no-underline hover:underline cursor-pointer;
+  pointer-events: all !important;
 }
 
 :deep(.prose strong) {
