@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import BaseButton from '@/components/ui/BaseButton.vue';
+import type { SpeechRecognition, SpeechRecognitionEvent } from '@/types/browser';
 
 const message = ref('');
 const isRecording = ref(false);
@@ -29,19 +30,22 @@ const animateWaveform = () => {
 const initSpeechRecognition = () => {
   if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    recognition.value = new SpeechRecognition();
-    recognition.value.continuous = false;
-    recognition.value.interimResults = false;
-    recognition.value.lang = 'es-ES';
+    const recognitionInstance = new SpeechRecognition();
+    
+    recognitionInstance.continuous = false;
+    recognitionInstance.interimResults = false;
+    recognitionInstance.lang = 'es-ES';
 
-    recognition.value.onresult = (event) => {
+    recognitionInstance.onresult = (event: SpeechRecognitionEvent) => {
       const transcript = event.results[0][0].transcript;
       message.value = transcript;
     };
 
-    recognition.value.onend = () => {
+    recognitionInstance.onend = () => {
       stopRecording();
     };
+
+    recognition.value = recognitionInstance;
   }
 };
 

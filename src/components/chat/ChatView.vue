@@ -80,7 +80,7 @@ const sendMessage = async (content: string) => {
 
   try {
     isLoading.value = true;
-    const response = await sendAIMessage(content, authStore.user);
+    const response = await sendAIMessage(content, authStore.user?.id?.toString() || Date.now().toString());
     
     // Remove loading message and add response
     messages.value = messages.value.filter(m => m.id !== loadingMessageId);

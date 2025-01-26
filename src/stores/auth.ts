@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
-import { ref } from 'vue';
 import { useStorage } from '@vueuse/core';
 
 interface UserData {
+  id?: number;
   username: string;
   avatar?: string;
 }

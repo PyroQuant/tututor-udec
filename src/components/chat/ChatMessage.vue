@@ -23,7 +23,7 @@ const userAvatar = computed(() => {
 
 const sanitizedHtml = computed(() => {
   if (props.isLoading) return '';
-  const rawHtml = marked(props.content);
+  const rawHtml = marked(props.content) as string;
   return DOMPurify.sanitize(rawHtml);
 });
 </script>

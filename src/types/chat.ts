@@ -13,6 +13,7 @@ export interface Message {
   content: string;
   isUser: boolean;
   timestamp: Date;
+  isLoading?: boolean;
 }
 
 export interface ChatHistory {
