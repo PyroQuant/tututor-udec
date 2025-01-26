@@ -186,22 +186,21 @@ onMounted(async () => {
       </div>
     </header>
 
-    <!-- Main Content Area -->
-    <div class="flex-1 flex flex-col overflow-hidden">
-      <!-- Messages Container -->
-      <div class="flex-1 overflow-y-auto p-6 max-w-4xl mx-auto w-full">
-        <ChatMessage
-          v-for="message in messages"
-          :key="message.id"
-          :content="message.content"
-          :is-user="message.isUser"
-          :timestamp="message.timestamp"
-          :is-loading="message.isLoading"
-        />
-      </div>
+    <!-- Messages Container -->
+    <div class="flex-1 overflow-y-auto p-6 pb-40 max-w-4xl mx-auto w-full">
+      <ChatMessage
+        v-for="message in messages"
+        :key="message.id"
+        :content="message.content"
+        :is-user="message.isUser"
+        :timestamp="message.timestamp"
+        :is-loading="message.isLoading"
+      />
+    </div>
 
-      <!-- Fixed Bottom Section -->
-      <div class="flex-shrink-0 max-w-4xl mx-auto w-full px-6 pb-6">
+    <!-- Fixed Bottom Section -->
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-50">
+      <div class="max-w-4xl mx-auto w-full px-6 pb-6">
         <SuggestionCards
           v-if="showSuggestions && messages.length === 1"
           @select="handleSuggestionSelect"
