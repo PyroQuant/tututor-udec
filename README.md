@@ -1,5 +1,55 @@
-# Vue 3 + TypeScript + Vite
+# TuTutor UdeC
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Tu compañero en el camino al éxito académico.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Requisitos
+
+- Node.js 20 o superior
+- npm o yarn
+- Docker (para despliegue)
+
+## Desarrollo Local
+
+```bash
+# Instalar dependencias
+npm install
+
+# Iniciar servidor de desarrollo
+npm run dev
+```
+
+## Despliegue con Docker
+
+```bash
+# Construir imagen
+docker build -t tututor-udec .
+
+# Ejecutar contenedor
+docker run -p 80:80 tututor-udec
+```
+
+## Despliegue en Coolify
+
+1. Conecta tu repositorio de GitHub en Coolify
+2. Configura el Build Pack como "Dockerfile"
+3. Configura el puerto expuesto como 80
+4. Configura las siguientes variables de entorno si son necesarias:
+   - `VITE_API_URL`: URL de la API backend
+   - `VITE_APP_ENV`: Entorno de la aplicación (production/development)
+
+## Configuración de Nginx
+
+El proyecto incluye una configuración personalizada de Nginx que maneja:
+- Redirección para SPA
+- Headers de seguridad
+- Caché de archivos estáticos
+- Soporte para fuentes de Google y recursos externos
+
+## Estructura del Proyecto
+
+```
+├── src/                # Código fuente
+├── public/            # Archivos estáticos
+├── Dockerfile         # Configuración de Docker
+├── nginx.conf         # Configuración de Nginx
+└── .dockerignore      # Archivos ignorados en Docker
