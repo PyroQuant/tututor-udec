@@ -160,26 +160,26 @@ onMounted(async () => {
       </div>
     </div>
 
-    <!-- Header -->
-    <header class="bg-blue-900 text-white px-6 py-4">
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 right-0 bg-blue-900 text-white px-4 md:px-6 py-3 z-30 shadow-lg">
       <div class="max-w-7xl mx-auto flex items-center justify-between">
         <button @click="toggleMenu" class="p-2 hover:bg-blue-800 rounded-full">
           <span class="material-icons">menu</span>
         </button>
         
-        <div class="flex items-center justify-center gap-3">
+        <div class="flex items-center justify-center gap-2 md:gap-3">
           <img 
             src="https://www.ruess.cl/wp-content/uploads/2018/09/udec.png" 
             alt="UdeC Logo" 
-            class="h-8"
+            class="h-6 md:h-8"
           />
-          <h1 class="text-xl font-bold">TuTutor UdeC</h1>
+          <h1 class="text-lg md:text-xl font-bold">TuTutor UdeC</h1>
         </div>
 
         <BaseButton
           variant="secondary"
           @click="handleLogout"
-          class="bg-white text-blue-900 hover:bg-gray-100 rounded-full px-6"
+          class="bg-white text-blue-900 hover:bg-gray-100 rounded-full px-3 md:px-6 text-sm md:text-base"
         >
           Cerrar Sesión
         </BaseButton>
@@ -187,7 +187,7 @@ onMounted(async () => {
     </header>
 
     <!-- Messages Container -->
-    <div class="flex-1 overflow-y-auto p-6 pb-40 max-w-4xl mx-auto w-full">
+    <div class="flex-1 overflow-y-auto p-4 md:p-6 pt-20 pb-32 md:pt-24 md:pb-40 max-w-4xl mx-auto w-full">
       <ChatMessage
         v-for="message in messages"
         :key="message.id"
@@ -199,8 +199,8 @@ onMounted(async () => {
     </div>
 
     <!-- Fixed Bottom Section -->
-    <div class="fixed bottom-0 left-0 right-0 bg-gray-50">
-      <div class="max-w-4xl mx-auto w-full px-6 pb-6">
+    <div class="fixed bottom-0 left-0 right-0 bg-gray-50 shadow-lg">
+      <div class="max-w-4xl mx-auto w-full px-4 md:px-6 pb-4 md:pb-6">
         <SuggestionCards
           v-if="showSuggestions && messages.length === 1"
           @select="handleSuggestionSelect"

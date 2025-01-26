@@ -58,28 +58,28 @@ const handleSubmit = async (event: Event) => {
 
 <template>
   <div 
-    class="min-h-screen flex items-center justify-center bg-cover bg-center px-4"
+    class="min-h-screen flex items-center justify-center bg-cover bg-center px-4 py-8 md:py-0"
     style="background-image: url('https://i.ibb.co/r4f0zR1/3961a873-8fdc-4cb2-bfb2-7510646888db.jpg')"
   >
     <div class="w-full max-w-md login-container animate__animated animate__fadeIn">
-      <div class="text-center mb-8">
-        <div class="flex justify-center items-center gap-0 mb-4">
+      <div class="text-center mb-6 md:mb-8">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-0 mb-4">
           <img 
             src="https://i.ibb.co/4VWMRXr/488dfff6-ad3d-4cc9-a460-9c90c27bfb4c.png" 
             alt="TuTutor Logo" 
-            class="h-40 object-contain"
+            class="h-32 md:h-40 object-contain"
           />
           <img 
             src="https://www.ruess.cl/wp-content/uploads/2018/09/udec.png" 
             alt="UdeC Logo" 
-            class="h-24 object-contain" style="margin-top: 25px;"
+            class="h-20 md:h-24 object-contain md:mt-6"
           />
         </div>
-        <h2 class="text-3xl font-bold text-white drop-shadow-lg">TuTutor UdeC</h2>
-        <p class="text-white mt-2 font-semibold text-lg drop-shadow-md">Tu compañero en el camino al éxito académico</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">TuTutor UdeC</h2>
+        <p class="text-white mt-2 font-semibold text-base md:text-lg drop-shadow-md">Tu compañero en el camino al éxito académico</p>
       </div>
       
-      <div class="bg-white/95 backdrop-blur-sm px-8 py-6 rounded-lg shadow-2xl mx-4 animate__animated animate__fadeInUp animate__delay-1s">
+      <div class="bg-white/95 backdrop-blur-sm px-6 md:px-8 py-6 rounded-lg shadow-2xl mx-2 md:mx-4 animate__animated animate__fadeInUp animate__delay-1s">
         <form @submit.prevent="handleSubmit">
           <BaseInput
             v-model="form.email"
@@ -117,10 +117,10 @@ const handleSubmit = async (event: Event) => {
             {{ isLoading ? 'Iniciando sesión...' : 'Iniciar Sesión' }}
           </BaseButton>
 
-          <div class="mt-4 text-center">
+          <div class="mt-6 text-center">
             <router-link 
               to="/register" 
-              class="text-sm text-blue-600 hover:text-blue-800 transition-colors duration-300"
+              class="text-sm md:text-base text-blue-600 hover:text-blue-800 transition-colors duration-300"
             >
               ¿No tienes cuenta? Regístrate aquí
             </router-link>
