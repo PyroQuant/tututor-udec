@@ -63,17 +63,21 @@ const handleSubmit = async (event: Event) => {
   >
     <div class="w-full max-w-md login-container animate__animated animate__fadeIn">
       <div class="text-center mb-6 md:mb-8">
-        <div class="flex justify-center items-center gap-2 mb-4">
-          <img 
-            src="https://i.ibb.co/4VWMRXr/488dfff6-ad3d-4cc9-a460-9c90c27bfb4c.png" 
-            alt="TuTutor Logo" 
-            class="h-32 md:h-40 object-contain"
-          />
-          <img 
-            src="https://www.ruess.cl/wp-content/uploads/2018/09/udec.png" 
-            alt="UdeC Logo" 
-            class="h-20 md:h-24 object-contain md:mt-6"
-          />
+        <div class="flex flex-row justify-center items-center gap-2 mb-4">
+          <div class="flex-shrink-0">
+            <img 
+              src="https://i.ibb.co/4VWMRXr/488dfff6-ad3d-4cc9-a460-9c90c27bfb4c.png" 
+              alt="TuTutor Logo" 
+              class="h-32 md:h-40 object-contain"
+            />
+          </div>
+          <div class="flex-shrink-0">
+            <img 
+              src="https://www.ruess.cl/wp-content/uploads/2018/09/udec.png" 
+              alt="UdeC Logo" 
+              class="h-20 md:h-24 object-contain"
+            />
+          </div>
         </div>
         <h2 class="text-2xl md:text-3xl font-bold text-white drop-shadow-lg">TuTutor UdeC</h2>
         <p class="text-white mt-2 font-semibold text-base md:text-lg drop-shadow-md">Tu compañero en el camino al éxito académico</p>
